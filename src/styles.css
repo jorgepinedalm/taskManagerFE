@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+:root {
+    --bg-color: #fafafa;
+    --bg-light: #ffffff;
+    --font-color: #23232d;
+    --font-secondary-color: #6b7280;
+    --font-light: #23232d;
+    --primary-color: #5a55b9!important;
+    --primary-text-color: #ffffff;
+    --primary-hover-color: #e9d5ff;
+    --primary-hover-text-color: #23232d;
+    --border-color: #dddddd;
+}
