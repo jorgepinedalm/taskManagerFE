@@ -2,14 +2,19 @@
   <div class=""></div>
   <div class="board-layout__sidebar">
     <div class="board-layout__title">
-      <img class="board-layout__title__icon" src="/brand.svg" alt="Icon"/>
+      <img class="board-layout__title__icon" src="brand.svg" alt="Icon"/>
       <h1 class="h4 m-0">Mi lista de tareas</h1>
     </div>    
     <p>Desarrollado por Jorge Pineda.</p>
       <button 
       type="button" 
-      class="py-3 px-4 mb-3 rounded bg-blue-500 text-white fw-semibold shadow-md hover:shadow-lg w-full"
-      (click)="openCreateTaskForm()">Añadir tarea</button>
+      class="py-3 px-4 mb-3 rounded bg-blue-500 text-white fw-semibold shadow-md hover:shadow-lg w-full d-inline-flex justify-content-center align-items-center gap-2"
+      (click)="openCreateTaskForm()">
+      <span class="material-symbols-outlined">
+        add
+      </span>
+      Añadir tarea
+    </button>
   </div>
   <div class="board-layout__content">
     <div class="board-layout__content__column">
@@ -17,7 +22,7 @@
       <app-task-detail *ngFor="let task of pendingTasks" [task]="task"></app-task-detail>
     </div>
     <div class="board-layout__content__column">
-      <h2 class="h5">Tareas completas ({{completedTasks.length}})</h2>
+      <h2 class="h5">Tareas completadas ({{completedTasks.length}})</h2>
       <app-task-detail *ngFor="let task of completedTasks" [task]="task"></app-task-detail>
     </div>
     

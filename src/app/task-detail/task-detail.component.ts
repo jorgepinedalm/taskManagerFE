@@ -1,13 +1,13 @@
 import { Component, inject, input } from '@angular/core';
 import { Task } from '../shared/models/tasks.model';
 import { CommonModule } from '@angular/common';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateTaskComponent } from '../update-task/update-task.component';
 import { DeleteTaskComponent } from '../delete-task/delete-task.component';
 
 @Component({
   selector: 'app-task-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, NgbTooltipModule],
   templateUrl: './task-detail.component.html',
   styleUrl: './task-detail.component.css'
 })
