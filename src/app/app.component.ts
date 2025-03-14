@@ -6,12 +6,13 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { Task } from './shared/models/tasks.model';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TaskSkeletonComponent } from './task-skeleton/task-skeleton.component';
+import { TasksListEmptyComponent } from './tasks-list-empty/tasks-list-empty.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [CommonModule, TaskDetailComponent, TaskSkeletonComponent],
+  imports: [CommonModule, TaskDetailComponent, TaskSkeletonComponent, TasksListEmptyComponent],
 })
 export class AppComponent implements OnInit{
   

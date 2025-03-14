@@ -34,13 +34,28 @@
   <div class="board-layout__content">
     <div class="board-layout__content__column">
       <h2 class="h5">Tareas pendientes ({{pendingTasks.length}})</h2>
-      <app-task-skeleton *ngIf="!loadedTasks"></app-task-skeleton>
-      <app-task-detail *ngFor="let task of pendingTasks" [task]="task"></app-task-detail>
+      @if(!loadedTasks){
+        <app-task-skeleton></app-task-skeleton>
+      }
+      @if(loadedTasks && pendingTasks.length === 0){
+        <app-tasks-list-empty message="No hay tareas pendientes"></app-tasks-list-empty>
+      }
+      @for(task of pendingTasks; track task.id){
+        <app-task-detail [task]="task"></app-task-detail>
+      }
+      
     </div>
     <div class="board-layout__content__column">
       <h2 class="h5">Tareas completadas ({{completedTasks.length}})</h2>
-      <app-task-skeleton *ngIf="!loadedTasks"></app-task-skeleton>
-      <app-task-detail *ngFor="let task of completedTasks" [task]="task"></app-task-detail>
+      @if(!loadedTasks){
+        <app-task-skeleton></app-task-skeleton>
+      }
+      @if(loadedTasks && completedTasks.length === 0){
+        <app-tasks-list-empty message="No hay tareas completadas"></app-tasks-list-empty>
+      }
+      @for(task of completedTasks; track task.id){
+        <app-task-detail [task]="task"></app-task-detail>
+      }
     </div>
     
   </div>
