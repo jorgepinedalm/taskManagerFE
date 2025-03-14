@@ -3,7 +3,6 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Task } from '../models/tasks.model';
-import { TaskResponse } from '../models/task-response.model';
 
 @Injectable({
     providedIn: 'root'
@@ -25,20 +24,11 @@ export class TaskService {
         if(this.tasks.value.length > 0){
             return this.tasks.asObservable()
         }else{
-            return this.http.get<TaskResponse[]>(`${environment.API}api/tasks`)
-            .pipe(
-                map(tasks => {
-                    return tasks.map(task => {
-                        const newTask:Task = {
-                            id: task.Id,
-                            title: task.Title,
-                            description: task.Description,
-                            isCompleted: task.IsCompleted
-                        }
-                        return newTask;
-                    })
+            return this.http.get<Task[]>(`${environment.API}api/tasks`).pipe(
+                tap((tasks) => {
+                    this.tasks.next(tasks);
                 })
-            );
+            )
         }
         
     }
@@ -48,19 +38,20 @@ export class TaskService {
         .pipe(
             tap( createdTaskId => {
                 const tasks = this.tasks.value;
-                tasks.push({...task, id: createdTaskId})
+                tasks.push({...createdTaskId})
                 this.tasks.next(tasks);
             })
         );
     }
 
     updateTask(taskId:number, updatedTask:Task){
+        console.log({taskId});
         return this.http.put<any>(`${environment.API}api/tasks/${taskId}`, updatedTask).pipe(
             tap( () => {
                 const tasks = this.tasks.value;
                 const indexFoundTask = tasks.findIndex(task => task.id === taskId);
                 if(indexFoundTask > -1){
-                    tasks[indexFoundTask] = updatedTask;
+                    tasks[indexFoundTask] = {...updatedTask, id: taskId};
                 }
                 this.tasks.next(tasks);
             })
@@ -68,11 +59,16 @@ export class TaskService {
     }
 
     removeTask(taskId:number){
+        console.log({taskId});
         return this.http.delete<null>(`${environment.API}api/tasks/${taskId}`).pipe(
             tap( () => {
                 const tasks = this.tasks.value;
-                const tasksWithRemove = tasks.filter(task => task.id !== taskId);
-                this.tasks.next(tasksWithRemove);
+                const indexFoundTask = tasks.findIndex(task => task.id === taskId);
+                if(indexFoundTask > -1){
+                    tasks.splice(indexFoundTask, 1);
+                }
+                console.log({tasks});
+                this.tasks.next(tasks);
             })
         );
     }

@@ -1,0 +1,21 @@
+.board-layout{
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    display: flex;
+    width: 100%;
+    padding : 1rem;
+    gap: 1rem;
+}
+.board-layout__sidebar{
+    width: 280px;
+    flex: none;
+}
+.board-layout__title{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.board-layout__title__icon{
+    height: 32px;
+}
