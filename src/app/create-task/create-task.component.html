@@ -7,7 +7,7 @@
         <div class="modal-body">
 			<div class="mb-3" [ngClass]="{'was-validated': title?.invalid && (title?.dirty || title?.touched)}">
                 <label for="title" class="form-label">Título</label>
-                <input type="text" formControlName="title" class="form-control" id="title" maxlength="255" required autocomplete="off" placeholder="Ingrese el nombre de la tarea">
+                <input type="text" formControlName="title" class="form-control" id="title" maxlength="255" required autocomplete="off" placeholder="Ingrese el nombre de la tarea. Dato requerido">
                 
                 @if(title?.invalid && (title?.dirty || title?.touched)){
                     <div class="invalid-feedback">
@@ -26,7 +26,7 @@
             </div>
             <div class="mb-3" [ngClass]="{'was-validated': description?.invalid && (description?.dirty || description?.touched)}">
                 <label for="description" class="form-label">Descripción</label>
-                <textarea class="form-control" formControlName="description" id="description" rows="3" maxlength="1000" required placeholder="Ingrese la descripción de la tarea"></textarea>
+                <textarea class="form-control" formControlName="description" id="description" rows="3" maxlength="1000" required placeholder="Ingrese la descripción de la tarea. Dato requerido"></textarea>
                 @if(description?.invalid && (description?.dirty || description?.touched)){
                     <div class="invalid-feedback">
                         @if(description?.hasError('required')){

@@ -25,6 +25,7 @@ export class UpdateTaskComponent implements AfterViewInit, OnDestroy{
     this.disableButton = false;
     this.subscription = new Subscription();
   }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
@@ -49,7 +50,6 @@ export class UpdateTaskComponent implements AfterViewInit, OnDestroy{
    * Load data of task in form
    */
   private loadData(): void {
-    console.log(this.taskToUpdate);
     this.taskForm.patchValue({...this.taskToUpdate})
   }
 

@@ -1,6 +1,6 @@
 # 📝 Aplicación de Gestión de Tareas (Angular + .NET 8)
 
-Este es un proyecto desarrollado en Angular para gestionar tareas mediante una interfaz sencilla. La aplicación permite crear, listar, actualizar y eliminar tareas (CRUD) y se conecta con un backend en .NET Core 8.
+Este es un proyecto desarrollado en Angular para gestionar tareas mediante una interfaz sencilla. La aplicación permite crear, listar, actualizar y eliminar tareas (CRUD) y se conecta con un backend en .NET Core 8. El diseño que propuse fue estilo kanban donde se pudiera facilitar el uso de las funcionalidades de la aplicación.
 
 ## 🚀 Características
 
@@ -8,9 +8,10 @@ Este es un proyecto desarrollado en Angular para gestionar tareas mediante una i
 - ✅ Creación de nuevas tareas con título y descripción.
 - ✅ Actualización del estado de una tarea (completar o marcar como pendiente).
 - ✅ Eliminación de tareas.
+- ✅ Separación de tareas por estados a través de columnas.
 - ✅ Consumo de una API en .NET Core 8 para gestionar los datos.
 - ✅ Uso de Angular Services para la lógica de negocio.
-- ✅ Estilización con Bootstrap y Tailwind CSS.
+- ✅ Estilización con Bootstrap (Para manejo de modales) y Tailwind CSS.
 
 ## 🛠️ Tecnologías Usadas
 
@@ -78,7 +79,7 @@ Si el backend se ejecuta en otro puerto o dominio, modifique este valor.
 | `PUT`    | `/api/tasks/{id}` | Actualizar una tarea     |
 | `DELETE` | `/api/tasks/{id}` | Eliminar una tarea       |
 
-## 🌍 Despliegue (Opcional)
+## 🌍 Despliegue
 
 Para desplegar el proyecto en GitHub Pages se usa el paquete `angular-cli-ghpages` y se ejecuta el comando:
 
@@ -86,4 +87,15 @@ Para desplegar el proyecto en GitHub Pages se usa el paquete `angular-cli-ghpage
 ng deploy --base-href=https://jorgepinedalm.github.io/taskManagerFE/
 ```
 
+## 🎯 Mejoras Futuras (Extras)
+
+- ⭐ Notificaciones visuales con Toastr o SweetAlert. Actualmente los mensajes luego de las acciones realizadas se muestran en console.logs
+- ⭐ Pruebas unitarias con Jest. El proyecto ya esta configurado para crear las pruebas unitarias.
+
 Para ver la versión desplegada de esta aplicación puede acceder a: [https://jorgepinedalm.github.io/taskManagerFE/](https://jorgepinedalm.github.io/taskManagerFE/)
+
+## 💡 Contacto
+
+Si tienes dudas o sugerencias, contáctame en **[LinkedIn](https://www.linkedin.com/in/jorgepinedam/)**.
+
+🚀 *¡Gracias por revisar este proyecto!* 🚀

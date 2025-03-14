@@ -59,7 +59,6 @@ export class TaskService {
      * @returns Observable with no content
      */
     updateTask(taskId:number, updatedTask:Task){
-        console.log({taskId});
         return this.http.put<any>(`${environment.API}api/tasks/${taskId}`, updatedTask).pipe(
             tap( () => {
                 const tasks = this.tasks.value;
@@ -78,7 +77,6 @@ export class TaskService {
      * @returns Observable with no content
      */
     removeTask(taskId:number){
-        console.log({taskId});
         return this.http.delete<null>(`${environment.API}api/tasks/${taskId}`).pipe(
             tap( () => {
                 const tasks = this.tasks.value;
@@ -86,7 +84,6 @@ export class TaskService {
                 if(indexFoundTask > -1){
                     tasks.splice(indexFoundTask, 1);
                 }
-                console.log({tasks});
                 this.tasks.next(tasks);
             })
         );
