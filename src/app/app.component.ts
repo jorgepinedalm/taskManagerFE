@@ -5,12 +5,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { Task } from './shared/models/tasks.model';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { TaskSkeletonComponent } from './task-skeleton/task-skeleton.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [CommonModule, TaskDetailComponent],
+  imports: [CommonModule, TaskDetailComponent, TaskSkeletonComponent],
 })
 export class AppComponent implements OnInit{
   
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit{
   private taskService = inject(TaskService);
   private modalService = inject(NgbModal);
   tasks = this.taskService.getTasks();
+  loadedTasks:boolean;
 
   pendingTasks: Task[];
   completedTasks: Task[];
@@ -25,12 +27,14 @@ export class AppComponent implements OnInit{
   constructor(){
     this.pendingTasks = [];
     this.completedTasks = [];
+    this.loadedTasks = false;
   }
 
   ngOnInit(): void {
     this.tasks.subscribe((tasks) => {
       this.pendingTasks = tasks.filter(task => !task.isCompleted);
       this.completedTasks = tasks.filter(task => task.isCompleted);
+      this.loadedTasks = true;
     })
   }
 

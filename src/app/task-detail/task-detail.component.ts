@@ -16,7 +16,7 @@ import { catchError } from 'rxjs';
 export class TaskDetailComponent {
   task = input<Task>();
   private modalService = inject(NgbModal);
-  disableCompleteButton:boolean = true;
+  disableCompleteButton:boolean = false;
   private taskService = inject(TaskService);
   
   openUpdateTaskForm(): void {

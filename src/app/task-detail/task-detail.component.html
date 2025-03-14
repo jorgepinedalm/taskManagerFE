@@ -11,7 +11,7 @@
             </span>
         </button>
         <div class="d-flex gap-2 order-last">
-            <button type="button" *ngIf="!task()?.isCompleted" class="btn btn-sm btn-primary md:order-2 p-2 d-flex align-items-center justify-content-center gap-1" (click)="completeTask()" [autoClose]="true" placement="bottom" ngbTooltip="Completar tarea">
+            <button type="button" *ngIf="!task()?.isCompleted" class="btn btn-sm btn-primary md:order-2 p-2 d-flex align-items-center justify-content-center gap-1" (click)="completeTask()" [autoClose]="true" placement="bottom" ngbTooltip="Completar tarea" [disabled]="disableCompleteButton">
                 <span class="material-symbols-outlined">
                     task_alt
                 </span>

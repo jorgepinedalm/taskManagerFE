@@ -7,5 +7,10 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss()">Cancelar</button>
-    <button type="submit" class="btn btn-danger px-3" (click)="deleteTask()" [disabled]="disableButton">Eliminar</button>
+    <button type="submit" class="btn btn-danger px-3 d-flex align-items-center gap-1" (click)="deleteTask()" [disabled]="disableButton">
+        <span class="material-symbols-outlined animate-spin" *ngIf="disableButton">
+            progress_activity
+        </span>
+        Eliminar
+    </button>
 </div>

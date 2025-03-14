@@ -25,17 +25,21 @@
         Añadir tarea
       </button>
     </div>
-    
-    <p>Desarrollado por Jorge Pineda.</p>
+    <div class="d-flex align-items-center gap-2 mb-3">
+      <img src="foto.jpg" alt="Foto del autor" class="rounded-full photo">
+      <p class="mb-0"><small>Desarrollado por</small><br> <a href="https://www.linkedin.com/in/jorgepinedam/" target="_blank">Jorge Pineda M</a></p>
+    </div>
       
   </div>
   <div class="board-layout__content">
     <div class="board-layout__content__column">
       <h2 class="h5">Tareas pendientes ({{pendingTasks.length}})</h2>
+      <app-task-skeleton *ngIf="!loadedTasks"></app-task-skeleton>
       <app-task-detail *ngFor="let task of pendingTasks" [task]="task"></app-task-detail>
     </div>
     <div class="board-layout__content__column">
       <h2 class="h5">Tareas completadas ({{completedTasks.length}})</h2>
+      <app-task-skeleton *ngIf="!loadedTasks"></app-task-skeleton>
       <app-task-detail *ngFor="let task of completedTasks" [task]="task"></app-task-detail>
     </div>
     
