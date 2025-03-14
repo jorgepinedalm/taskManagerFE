@@ -19,3 +19,15 @@
 .board-layout__title__icon{
     height: 32px;
 }
+.board-layout__content{
+    display: flex;
+    overflow: auto;
+}
+.board-layout__content__column{
+    width: 30%;
+    min-width: 280px;
+    max-width: 400px;
+    padding: .25rem .5rem;
+    border-radius: 8px;
+    border: 1px dashed transparent;
+}

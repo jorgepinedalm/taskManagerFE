@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Task } from '../models/tasks.model';
 
@@ -9,11 +9,13 @@ import { Task } from '../models/tasks.model';
 })
 export class TaskService {
     private tasks: BehaviorSubject<Task[]>;
+    private taskObserver:Observable<Task[]>;
 
     http = inject(HttpClient);
 
     constructor(){
         this.tasks = new BehaviorSubject<Task[]>([]);
+        this.taskObserver = this.tasks.asObservable();
     }
 
     /**
@@ -22,11 +24,12 @@ export class TaskService {
      */
     getTasks(): Observable<Task[]>{
         if(this.tasks.value.length > 0){
-            return this.tasks.asObservable()
+            return this.taskObserver
         }else{
             return this.http.get<Task[]>(`${environment.API}api/tasks`).pipe(
-                tap((tasks) => {
+                switchMap((tasks) => {
                     this.tasks.next(tasks);
+                    return this.taskObserver
                 })
             )
         }
