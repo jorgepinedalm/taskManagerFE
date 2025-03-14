@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, inject, Input, input } from '@angular/core';
+import { AfterViewInit, Component, inject, Input, OnDestroy } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Task } from '../shared/models/tasks.model';
 import { TaskService } from '../shared/services/tasks.service';
-import { catchError, of } from 'rxjs';
+import { catchError, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-update-task',
@@ -12,22 +12,31 @@ import { catchError, of } from 'rxjs';
   templateUrl: './update-task.component.html',
   styleUrl: './update-task.component.css'
 })
-export class UpdateTaskComponent implements AfterViewInit{
+export class UpdateTaskComponent implements AfterViewInit, OnDestroy{
   taskForm:FormGroup;
   @Input() taskToUpdate?:Task;
   activeModal = inject(NgbActiveModal);
   private taskService = inject(TaskService);
   disableButton:boolean;
+  subscription:Subscription;
   
   constructor(){
     this.taskForm = this.editForm();
     this.disableButton = false;
+    this.subscription = new Subscription();
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   ngAfterViewInit(): void {
     this.loadData();
   }
 
+  /**
+   * Create the form
+   * @returns form to edit task
+   */
   private editForm(): FormGroup{
     return new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(255)]),
@@ -36,21 +45,31 @@ export class UpdateTaskComponent implements AfterViewInit{
     })
   }
 
+  /**
+   * Load data of task in form
+   */
   private loadData(): void {
     console.log(this.taskToUpdate);
     this.taskForm.patchValue({...this.taskToUpdate})
   }
 
+  /**
+   * Call update task method is form is valid
+   */
   closeAndSendData(): void{
     if(this.taskForm.valid){
       this.updateTask();
     }
   }
 
+  /**
+   * Update task. 
+   * Disable button while the request is sending and notify when close the modal
+   */
   updateTask(){
     this.disableButton = true;
     const updatedTask = this.taskForm.value;
-    this.taskService.updateTask(this.taskToUpdate?.id ?? 0, {...updatedTask})
+    this.subscription = this.taskService.updateTask(this.taskToUpdate?.id ?? 0, {...updatedTask})
     .pipe(
       catchError((error) => {
         this.disableButton = false;

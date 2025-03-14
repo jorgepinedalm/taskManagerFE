@@ -19,8 +19,8 @@ export class TaskService {
     }
 
     /**
-     * Get tasks
-     * @returns 
+     * Get tasks. The first time, get from the server. Then, data get from this service
+     * @returns {Observable<Task[]>} List of tasks.
      */
     getTasks(): Observable<Task[]>{
         if(this.tasks.value.length > 0){
@@ -36,7 +36,12 @@ export class TaskService {
         
     }
 
-    createTasks(task: Task) {
+    /**
+     * Add new task. Save the task in local array when response the server
+     * @param task data of task to create
+     * @returns Observable with task info
+     */
+    createTask(task: Task) {
         return this.http.post<any>(`${environment.API}api/tasks`, task)
         .pipe(
             tap( createdTaskId => {
@@ -47,6 +52,12 @@ export class TaskService {
         );
     }
 
+    /**
+     * Update task data
+     * @param taskId id of task to update
+     * @param updatedTask updated data of task
+     * @returns Observable with no content
+     */
     updateTask(taskId:number, updatedTask:Task){
         console.log({taskId});
         return this.http.put<any>(`${environment.API}api/tasks/${taskId}`, updatedTask).pipe(
@@ -61,6 +72,11 @@ export class TaskService {
         );
     }
 
+    /**
+     * Delete task
+     * @param taskId id of task to delete
+     * @returns Observable with no content
+     */
     removeTask(taskId:number){
         console.log({taskId});
         return this.http.delete<null>(`${environment.API}api/tasks/${taskId}`).pipe(

@@ -1,9 +1,9 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, OnDestroy } from '@angular/core';
 import { Task } from '../shared/models/tasks.model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { TaskService } from '../shared/services/tasks.service';
-import { catchError } from 'rxjs';
+import { catchError, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-delete-task',
@@ -11,19 +11,29 @@ import { catchError } from 'rxjs';
   templateUrl: './delete-task.component.html',
   styleUrl: './delete-task.component.css'
 })
-export class DeleteTaskComponent {
+export class DeleteTaskComponent implements OnDestroy{
   @Input() taskToDelete?:Task;
   activeModal = inject(NgbActiveModal);
   private taskService = inject(TaskService);
   disableButton:boolean;
+  subscription:Subscription;
 
   constructor(){
     this.disableButton = false;
+    this.subscription = new Subscription();
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  /**
+   * Delete task.
+   * Disable button while the server send data
+   */
   deleteTask(){
     this.disableButton = true;
-    this.taskService.removeTask(this.taskToDelete?.id ?? 0)
+    this.subscription = this.taskService.removeTask(this.taskToDelete?.id ?? 0)
     .pipe(
       catchError((error) => {
         this.disableButton = false;
