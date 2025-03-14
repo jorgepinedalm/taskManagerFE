@@ -30,7 +30,7 @@ Este es un proyecto desarrollado en Angular para gestionar tareas mediante una i
 1. Clonar el Repositorio
     ```bash
     git clone https://github.com/jorgepinedalm/taskManagerFE.git
-    cd task-manager-angular
+    cd taskManagerFE
     ```
 
 1. Instalar Dependencias
