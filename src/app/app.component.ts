@@ -1,25 +1,29 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { TaskService } from './shared/services/tasks.service';
 import { CommonModule } from '@angular/common';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreateTaskComponent } from './create-task/create-task.component';
 import { Task } from './shared/models/tasks.model';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TaskSkeletonComponent } from './task-skeleton/task-skeleton.component';
 import { TasksListEmptyComponent } from './tasks-list-empty/tasks-list-empty.component';
 import { Subscription } from 'rxjs';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [CommonModule, TaskDetailComponent, TaskSkeletonComponent, TasksListEmptyComponent],
+  imports: [
+    CommonModule, 
+    TaskDetailComponent, 
+    TaskSkeletonComponent, 
+    TasksListEmptyComponent,
+    SidebarComponent
+  ],
 })
 export class AppComponent implements OnInit, OnDestroy{
   
   title = 'task-manager';
   private taskService = inject(TaskService);
-  private modalService = inject(NgbModal);
   tasks = this.taskService.getTasks();
   loadedTasks:boolean;
   subscription:Subscription;
@@ -45,18 +49,5 @@ export class AppComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
-
-  /**
-   * Open create task modal
-   */
-  openCreateTaskForm() {
-		const modalRef = this.modalService.open(CreateTaskComponent);
-    modalRef.result.then(
-      (result) => {
-        console.log({result});
-      }
-    )
-	}
 
 }

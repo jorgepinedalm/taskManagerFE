@@ -1,0 +1,31 @@
+<div class="sidebar">
+    <div class="sidebar__top">
+      <div class="sidebar__title">
+        <img class="sidebar__title__icon" src="brand.svg" alt="Icon"/>
+        <h1 class="h4 m-0">Mi lista de tareas</h1>
+      </div>    
+      <p class="text-sm text-gray-500">
+        En este tablero de tareas puede:
+      </p>
+      <ul class="text-sm text-gray-500 list-disc mb-3">
+        <li>Añadir tareas</li>
+        <li>Modificar tareas</li>
+        <li>Eliminar tareas</li>
+        <li>Cambiar estado de las tareas</li>
+      </ul>
+      <button 
+        type="button" 
+        class="py-3 px-4 mb-3 rounded bg-blue-500 text-white fw-semibold shadow-md hover:shadow-lg w-full d-inline-flex justify-content-center align-items-center gap-2"
+        (click)="openCreateTaskForm()">
+        <span class="material-symbols-outlined">
+          add
+        </span>
+        Añadir tarea
+      </button>
+    </div>
+    <div class="d-flex align-items-center gap-2 mb-3">
+      <img src="foto.jpg" alt="Foto del autor" class="rounded-full photo">
+      <p class="mb-0"><small>Desarrollado por</small><br> <a href="https://www.linkedin.com/in/jorgepinedam/" target="_blank">Jorge Pineda M</a></p>
+    </div>
+      
+</div>
