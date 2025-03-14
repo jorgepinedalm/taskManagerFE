@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { NgbModal, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateTaskComponent } from '../update-task/update-task.component';
 import { DeleteTaskComponent } from '../delete-task/delete-task.component';
+import { TaskService } from '../shared/services/tasks.service';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-task-detail',
@@ -14,7 +16,8 @@ import { DeleteTaskComponent } from '../delete-task/delete-task.component';
 export class TaskDetailComponent {
   task = input<Task>();
   private modalService = inject(NgbModal);
-
+  disableCompleteButton:boolean = true;
+  private taskService = inject(TaskService);
   
   openUpdateTaskForm(): void {
     const modalRef = this.modalService.open(UpdateTaskComponent);
@@ -35,5 +38,25 @@ export class TaskDetailComponent {
       }
     )
   }
+
+  completeTask(){
+      this.disableCompleteButton = true;
+      const task = this.task();
+      if(task){
+        this.taskService.updateTask(task.id, {...task, isCompleted: !task.isCompleted})
+        .pipe(
+          catchError((error) => {
+            this.disableCompleteButton = false;
+            throw error
+          })
+        )
+        .subscribe(
+          () => {
+            this.disableCompleteButton = false;
+          }
+        )
+      }
+      
+    }
 
 }
