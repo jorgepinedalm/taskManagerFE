@@ -2,6 +2,8 @@
 
 Este es un proyecto desarrollado en Angular para gestionar tareas mediante una interfaz sencilla. La aplicación permite crear, listar, actualizar y eliminar tareas (CRUD) y se conecta con un backend en .NET Core 8. El diseño que propuse fue estilo kanban donde se pudiera facilitar el uso de las funcionalidades de la aplicación.
 
+![image](https://github.com/user-attachments/assets/17208e56-3815-44fc-bc2a-63a73cbbeb75)
+
 ## 🚀 Características
 
 - ✅ Lista de tareas con estado (pendiente / completado).
