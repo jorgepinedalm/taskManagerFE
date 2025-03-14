@@ -91,6 +91,7 @@ ng deploy --base-href=https://jorgepinedalm.github.io/taskManagerFE/
 
 - ⭐ Notificaciones visuales con Toastr o SweetAlert. Actualmente los mensajes luego de las acciones realizadas se muestran en console.logs
 - ⭐ Pruebas unitarias con Jest. El proyecto ya esta configurado para crear las pruebas unitarias.
+- ⭐ Con el diseño propuesto se puede plantear el uso de un drag & drop para mover las tareas entre los posibles estados
 
 Para ver la versión desplegada de esta aplicación puede acceder a: [https://jorgepinedalm.github.io/taskManagerFE/](https://jorgepinedalm.github.io/taskManagerFE/)
 
