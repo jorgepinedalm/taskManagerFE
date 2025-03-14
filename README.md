@@ -1,59 +1,89 @@
-# TaskManager
+# 📝 Aplicación de Gestión de Tareas (Angular + .NET 8)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.2.
+Este es un proyecto desarrollado en Angular para gestionar tareas mediante una interfaz sencilla. La aplicación permite crear, listar, actualizar y eliminar tareas (CRUD) y se conecta con un backend en .NET Core 8.
 
-## Development server
+## 🚀 Características
 
-To start a local development server, run:
+- ✅ Lista de tareas con estado (pendiente / completado).
+- ✅ Creación de nuevas tareas con título y descripción.
+- ✅ Actualización del estado de una tarea (completar o marcar como pendiente).
+- ✅ Eliminación de tareas.
+- ✅ Consumo de una API en .NET Core 8 para gestionar los datos.
+- ✅ Uso de Angular Services para la lógica de negocio.
+- ✅ Estilización con Bootstrap y Tailwind CSS.
+
+## 🛠️ Tecnologías Usadas
+
+- ✅ [Angular 19](https://angular.dev/)
+- ✅ [TypeScript](https://www.typescriptlang.org/)
+- ✅ [ng-bootstrap](https://ng-bootstrap.github.io/) (para uso de modal)
+- ✅ [Tailwind CSS](https://tailwindcss.com/)
+- ✅ [Node.js 22.14.0 & npm](https://nodejs.org/en/download)
+- ✅ [.NET 8 API REST (backend)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
+
+##  📦 Instalación y Configuración
+
+1. Clonar el Repositorio
+    ```bash
+    git clone https://github.com/jorgepinedalm/taskManagerFE.git
+    cd task-manager-angular
+    ```
+
+1. Instalar Dependencias
+    ```bash
+    npm install
+    ```
+   
+2. Configurar el Backend
+
+    El frontend está diseñado para trabajar con un backend en .NET 8. Los environments estan configurados para funcionar con la versión desplegada del backend en una App service de Azure creada para esta aplicación. Sin embarbo, si desea configurar el backend en local, puede seguir estos pasos:
+    - Clone el repositorio del backend en .NET Core 8: `git clone https://github.com/jorgepinedalm/taskManagerApi.git`
+    - Sigue las instrucciones en su README para ejecutarlo.
+    - Por defecto, la API al ejecutarse deberia correr el swagger habilitado a proposito para el desarrollo de esta aplicación: `https://localhost:44320/swagger/index.html`
+    
+    Si la dirección es diferente, aseguresé de cambiar la URL base en el archivo `src/environments/environment.ts`.
+
+## ▶️ Ejecución del Proyecto
+
+Para iniciar el servidor de desarrollo de Angular, ejecute:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Luego, abra tu navegador y acceda a:
 
-## Code scaffolding
+`http://localhost:4200/`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🔌 Conexión con el Backend
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+El frontend consume la API en .NET 8. La URL del backend se configura en `src/environments/environment.ts`:
 
 ```bash
-ng generate --help
+export const environment = {
+  production: false,
+  apiUrl: 'https://localhost:44320/api/tasks'
+};
 ```
 
-## Building
+Si el backend se ejecuta en otro puerto o dominio, modifique este valor.
 
-To build the project run:
+## 📑 Endpoints Consumidos
+
+| Método   | Endpoint          | Descripción              |
+| -------- | ----------------- | ------------------------ |
+| `GET`    | `/api/tasks`      | Obtener todas las tareas |
+| `POST`   | `/api/tasks`      | Crear una nueva tarea    |
+| `PUT`    | `/api/tasks/{id}` | Actualizar una tarea     |
+| `DELETE` | `/api/tasks/{id}` | Eliminar una tarea       |
+
+## 🌍 Despliegue (Opcional)
+
+Para desplegar el proyecto en GitHub Pages se usa el paquete `angular-cli-ghpages` y se ejecuta el comando:
 
 ```bash
-ng build
+ng deploy --base-href=https://jorgepinedalm.github.io/taskManagerFE/
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para ver la versión desplegada de esta aplicación puede acceder a: [https://jorgepinedalm.github.io/taskManagerFE/](https://jorgepinedalm.github.io/taskManagerFE/)
