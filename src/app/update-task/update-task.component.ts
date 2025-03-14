@@ -31,7 +31,7 @@ export class UpdateTaskComponent implements AfterViewInit{
   private editForm(): FormGroup{
     return new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(255)]),
-      description: new FormControl('', [Validators.maxLength(1000)]),
+      description: new FormControl('', [Validators.required, Validators.maxLength(1000)]),
       isCompleted: new FormControl(false),
     })
   }

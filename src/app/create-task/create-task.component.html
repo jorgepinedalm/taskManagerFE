@@ -7,7 +7,7 @@
         <div class="modal-body">
 			<div class="mb-3" [ngClass]="{'was-validated': title?.invalid && (title?.dirty || title?.touched)}">
                 <label for="title" class="form-label">Título</label>
-                <input type="text" formControlName="title" class="form-control" id="title" maxlength="255" required placeholder="Ingrese el nombre de la tarea">
+                <input type="text" formControlName="title" class="form-control" id="title" maxlength="255" required autocomplete="off" placeholder="Ingrese el nombre de la tarea">
                 
                 <div class="invalid-feedback" *ngIf="title?.invalid && (title?.dirty || title?.touched)">
                     <span *ngIf="title?.hasError('required')">
@@ -18,15 +18,19 @@
                    </span>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" [ngClass]="{'was-validated': description?.invalid && (description?.dirty || description?.touched)}">
                 <label for="description" class="form-label">Descripción</label>
-                <textarea class="form-control" formControlName="description" id="description" rows="3" maxlength="1000" placeholder="Ingrese la descripción de la tarea"></textarea>
+                <textarea class="form-control" formControlName="description" id="description" rows="3" maxlength="1000" required placeholder="Ingrese la descripción de la tarea"></textarea>
+                <div class="invalid-feedback" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+                    <span *ngIf="description?.hasError('required')">
+                        La descripción es requerida
+                    </span>
+                    <span *ngIf="description?.hasError('maxlength')">
+                        La descripción debe tener máximo 1000 caracteres
+                   </span>
+                </div>
             </div>
-            <div class="invalid-feedback" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
-                <span *ngIf="description?.hasError('maxlength')">
-                    La descripción debe tener máximo 1000 caracteres
-               </span>
-            </div>
+            
 		</div>
         <div class="modal-footer">
 			<button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss()">Cancelar</button>
