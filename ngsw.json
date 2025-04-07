@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1744029370913,
+  "timestamp": 1744032256585,
   "index": "https://jorgepinedalm.github.io/taskManagerFE/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://jorgepinedalm.github.io/taskManagerFE/favicon.ico",
         "https://jorgepinedalm.github.io/taskManagerFE/index.html",
-        "https://jorgepinedalm.github.io/taskManagerFE/main-5WZKZAZH.js",
+        "https://jorgepinedalm.github.io/taskManagerFE/main-WVQSMAFS.js",
         "https://jorgepinedalm.github.io/taskManagerFE/manifest.webmanifest",
         "https://jorgepinedalm.github.io/taskManagerFE/polyfills-TECF5RVS.js",
         "https://jorgepinedalm.github.io/taskManagerFE/styles-VKQ4X7I3.css"
@@ -55,8 +55,8 @@
     "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "https://jorgepinedalm.github.io/taskManagerFE/index.html": "6430edf94da4c72801dc163fb21b439c260bd628",
-    "https://jorgepinedalm.github.io/taskManagerFE/main-5WZKZAZH.js": "df2c70da2340597f757f1089f4f7327e40b3832e",
+    "https://jorgepinedalm.github.io/taskManagerFE/index.html": "dcfcb2dfb6e82341da99d4acefb71c778091ddb0",
+    "https://jorgepinedalm.github.io/taskManagerFE/main-WVQSMAFS.js": "4cca3a9c9e7f0115299e6045aa9ee67e8eba0e77",
     "https://jorgepinedalm.github.io/taskManagerFE/manifest.webmanifest": "e6970e910f390ecb9fdafd3ae35821da81f8e1b3",
     "https://jorgepinedalm.github.io/taskManagerFE/polyfills-TECF5RVS.js": "b9a6f3d1ea7ef2ef4e103139df31a15d13390317",
     "https://jorgepinedalm.github.io/taskManagerFE/styles-VKQ4X7I3.css": "9f82fddac2c6534724babcc71b6399c7277e9d4a"
