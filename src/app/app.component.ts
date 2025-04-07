@@ -7,6 +7,7 @@ import { TaskSkeletonComponent } from './task-skeleton/task-skeleton.component';
 import { TasksListEmptyComponent } from './tasks-list-empty/tasks-list-empty.component';
 import { Subscription } from 'rxjs';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ConnectionStatusService } from './shared/services/connection-status.service';
 
 @Component({
   selector: 'app-root',

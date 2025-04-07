@@ -22,6 +22,11 @@
         </span>
         Añadir tarea
       </button>
+      <div class="py-4">
+        Estado de conexión: <strong>
+          @if(isConnected) { Conectado } @else { Desconectado }
+        </strong>
+      </div>
     </div>
     <div class="d-flex align-items-center gap-2 mb-3">
       <img src="foto.jpg" alt="Foto del autor" class="rounded-full photo">
