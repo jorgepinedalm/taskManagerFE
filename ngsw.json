@@ -1,0 +1,83 @@
+{
+  "configVersion": 1,
+  "timestamp": 1744029370913,
+  "index": "https://jorgepinedalm.github.io/taskManagerFE/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://jorgepinedalm.github.io/taskManagerFE/favicon.ico",
+        "https://jorgepinedalm.github.io/taskManagerFE/index.html",
+        "https://jorgepinedalm.github.io/taskManagerFE/main-5WZKZAZH.js",
+        "https://jorgepinedalm.github.io/taskManagerFE/manifest.webmanifest",
+        "https://jorgepinedalm.github.io/taskManagerFE/polyfills-TECF5RVS.js",
+        "https://jorgepinedalm.github.io/taskManagerFE/styles-VKQ4X7I3.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://jorgepinedalm.github.io/taskManagerFE/brand.svg",
+        "https://jorgepinedalm.github.io/taskManagerFE/foto.jpg",
+        "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-128x128.png",
+        "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-144x144.png",
+        "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-152x152.png",
+        "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-192x192.png",
+        "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-384x384.png",
+        "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-512x512.png",
+        "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-72x72.png",
+        "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://jorgepinedalm.github.io/taskManagerFE/brand.svg": "5bc42507ea0718ade66c9316789e522a8043e6ef",
+    "https://jorgepinedalm.github.io/taskManagerFE/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "https://jorgepinedalm.github.io/taskManagerFE/foto.jpg": "508588505e80cf53212a4d88aef439aeb72aec5a",
+    "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "https://jorgepinedalm.github.io/taskManagerFE/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "https://jorgepinedalm.github.io/taskManagerFE/index.html": "6430edf94da4c72801dc163fb21b439c260bd628",
+    "https://jorgepinedalm.github.io/taskManagerFE/main-5WZKZAZH.js": "df2c70da2340597f757f1089f4f7327e40b3832e",
+    "https://jorgepinedalm.github.io/taskManagerFE/manifest.webmanifest": "e6970e910f390ecb9fdafd3ae35821da81f8e1b3",
+    "https://jorgepinedalm.github.io/taskManagerFE/polyfills-TECF5RVS.js": "b9a6f3d1ea7ef2ef4e103139df31a15d13390317",
+    "https://jorgepinedalm.github.io/taskManagerFE/styles-VKQ4X7I3.css": "9f82fddac2c6534724babcc71b6399c7277e9d4a"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
